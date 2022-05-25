@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;500;700&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
+
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="/">
+                <div class="logo">
+                    <div class="logo-img">
+                        <img src="https://www.metuchenlibrary.org/wp-content/uploads/2014/08/large_cute-bookworm.png"
+                        alt="logo">
+                    </div>
+                    <div class="logo_txt">
+                        <h3 style="font-size: 1.2vw;">
+                            Stony-Hill
+                        </h3>
+                        <h1 style="font-size: 1.6vw;">
+                            Primary
+                        </h1>
+                        <h2 style="font-size: 1vw;">
+                            School Library
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="search">
+                <input type="search" placeholder="Type to search">
+            </div>
+          
+            <div class="nav_links">
+                <a href="/admin/books" class="link">Books</a>
+                <a href="" class="link">Categories</a>
+                <a href="/auth/admin" class="link">Log in</a>
+            </div>
+        </nav>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID#</th>
+                    <th>Book Title</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th width="200px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(data.length){
+       
+                    for(var i = 0; i< data.length; i++) {%>  
+                        <tr>
+                            <th><%= data[i].id %></th>
+                            <td><%= data[i].bk_ttle%></td>
+                            <td><%= data[i].bk_desc%></td>
+                            <td><%= data[i].bk_cat%></td>
+                            <td colspan="2">
+                                <a class="" href="/students/students/edit/<%=data[i].Id%>">Edit</a>                                            
+                                <a class="" href="/students/students/delete/<%=data[i].Id%>">Delete</a>                                            
+                            </td>
+                        </tr>
+                    <% }
+                }else{ %>
+                    <tr>
+                        <td colspan="6">No Books</td>
+                    </tr>
+                <% } %>    
+            </tbody>
+        </table>
+    </body>
+</html>

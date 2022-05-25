@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title><%= title %></title>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      <link rel='stylesheet' href='/stylesheets/login.css' />
+    </head>
+
+    <body>
+
+        <nav>
+            <a href="/">
+                <div class="logo">
+                    <div class="logo-img">
+                        <img src="https://www.metuchenlibrary.org/wp-content/uploads/2014/08/large_cute-bookworm.png"
+                        alt="logo">
+                    </div>
+                    <div class="logo_txt">
+                        <h3 style="font-size: 1.2vw;">
+                            Stony-Hill
+                        </h3>
+                        <h1 style="font-size: 1.6vw;">
+                            Primary
+                        </h1>
+                        <h2 style="font-size: 1vw;">
+                            School Library
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- <div class="search">
+                <input type="search" placeholder="Type to search">
+            </div> -->
+          
+            <div class="nav_links">
+                <!-- <a href="/students/books" class="link">Books</a>
+                <a href="" class="link">Categories</a> -->
+                <a href="/auth/admin" class="link">Sign in as admin?</a>
+            </div>
+        </nav>
+
+        <div class="body_contain">
+            <div class="left">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/student-attending-online-class-3032718-2543582.png" alt="">
+            </div>
+
+            <div class="right">
+                <div class="form_ctrl">
+                    <form action="/auth/studentlog" method="post">
+                        <h1>Student Login</h1>
+
+                        <% if (messages.error) { %>
+                            <p style="color:red"><%- messages.error %></p>
+                        <% } %> 
+
+                        <div class="input_ctrl">
+                            <label for="email">Email</label><br>
+                            <input type="text" id="email" name="email" placeholder="trainee.email@address.com">
+                        </div>
+                        <div class="input_ctrl">
+                            <label for="password">Password</label><br>
+                            <input type="password" id="password" name="password" placeholder="Password">
+                        </div>
+            
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

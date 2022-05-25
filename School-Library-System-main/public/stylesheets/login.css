@@ -1,0 +1,99 @@
+.body_contain{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.body_contain .left{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.left img{
+    width: 85%;
+    height: 70%;
+    margin-top: 5vw;
+    /* opacity: 0.8; */
+    /* border: 1px solid red; */
+}
+
+.body_contain .right{
+    width: 50%;
+    height: 100%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* border: 1px solid red; */
+}
+
+.right .form_ctrl{
+    width: 100%;
+    /* border: 1px solid red; */
+    margin-top: 9vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_ctrl form{
+    width: 40%;
+    padding: 1vw;
+    /* border: 1px solid red; */
+}
+
+form h1{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 2.5vw auto;
+    font-size: 2.5vw;
+    line-height: 2;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.047);
+    font-weight: bold;
+    color: rgb(0, 9, 134);
+}
+
+form .input_ctrl{
+    width: 100%;
+    margin-bottom: 1.5vw;
+}
+
+.input_ctrl label{
+    font-size: 1vw;
+    margin-bottom: 20vw;
+    color: rgba(0, 0, 0, 0.812);
+}
+
+.input_ctrl input{
+    width: 100%;
+    height: 2.2vw;
+    margin-top: 0.3vw;
+    padding-left: 0.7vw;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.212);
+}
+
+.input_ctrl input:focus{
+    outline: 2px solid rgb(50, 64, 192);
+}
+
+form button{
+    width: 100%;
+    height: 2.5vw;
+    font-size: 1.1vw;
+    font-weight: bold;
+    cursor: pointer;
+    background: rgb(0, 9, 134);
+    border-radius: 5px;
+    margin-top: 1vw;
+    color: rgb(254, 254, 254);
+    border: none;
+    transition: 0.3s;
+}
+
+form button:hover{
+    background: rgb(13, 24, 180);
+}
