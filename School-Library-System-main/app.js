@@ -20,7 +20,7 @@ var mysql = require('mysql2');
 var homeRouter = require('./routes/index');
 var loginRouter = require('./routes/auth');
 var adminRouter = require('./routes/admin');
-var studentsRouter = require('./routes/students');
+// var studentsRouter = require('./routes/students');
 
 var app = express();
 
@@ -38,7 +38,6 @@ var app = express();
  
  //Session Settings
  app.use(cookieParser());
- app.use(cookieParser());
  app.use(session({ 
      secret: 'secret code 3245',
      resave: false,
@@ -49,7 +48,7 @@ var app = express();
 
  app.use(flash());
  
- app.use('/students', studentsRouter);
+//  app.use('/students', studentsRouter);
  app.use('/', homeRouter);
  app.use('/auth', loginRouter);
  app.use('/admin', adminRouter);

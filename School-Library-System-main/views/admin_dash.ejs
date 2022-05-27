@@ -1,26 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel='stylesheet' href='/stylesheets/style.css' />
-        <link rel='stylesheet' href='/stylesheets/admin.css' />
-        <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
-        <title><%= title %></title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <script src="https://kit.fontawesome.com/d1a2b3af9c.js" crossorigin="anonymous"></script>
+    <title><%= title %></title>
+</head>
 
-    <body>
-      <div class="body_contain">
-          <div class="left">
+<body>
+    <div class="body_contain">
+        <!--------- DASHBOARD MENU --------->
+        <section class="dash_menu ">
+            <a href="/" class="links">
+                <div class="logo">
+                    <div class="logo-img">
+                        <img src="https://www.metuchenlibrary.org/wp-content/uploads/2014/08/large_cute-bookworm.png"
+                        alt="logo">
+                    </div>
+                    <div class="logo_txt">
+                        <h3 style="font-size: 0.8vw;">
+                            Stony-Hill
+                        </h3>
+                        <h1 style="font-size: 1.2vw;">
+                            Primary
+                        </h1>
+                        <h2 style="font-size: 0.6vw;">
+                            School Library
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <div class="profil_info">
+                <!-- <div class="profile_photo">
+                    <img src="https://images.unsplash.com/photo-1627161684458-a62da52b51c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=549&q=80" alt="">
+                </div> -->
+                <p>Welcome</p>
+                <span><%= my_session.admin_ttl %> <%= my_session.lst_nm %></span>
+            </div>
+            <div class="dash_opts">
+                
+                <details class="option">
+                    <summary><a href="/admin"><i class="fa-solid fa-house-user"></i>Dashboard</a></summary>
+                </details>
 
-          </div>
-          <div class="right">
-              <div class="top_bar">
+                <details class="option">
+                    <summary><a href="/orders/admin" title="View All Orders"><i class="fa-solid fa-list-check"></i>Book Requests</a></summary>
+                </details>
 
-              </div>
-          </div>
-      </div>
-    </body>
+                <details class="option">
+                    <summary><i class="fa-solid fa-clipboard"></i>Books<i class="fas fa-angle-down"></i></summary>
+                    <p><a href="/admin/add-book" title="Add a New Item to the Menu"><i class="fa-solid fa-circle-plus"></i> Add Book</a></p>
+                    <p><a href="/admin/books" title="View All Books">All Books</a></p>
+                    <p><a href="#" title="View Pizzas' Menu">Book Categories</a></p>
+                    <!-- <p><a href="/admin/menu/burgers" title="View Burgers' Menu">Burgers</a></p>
+                    <p><a href="/admin/menu/wings" title="View Wings' Menu">Wings</a></p>
+                    <p><a href="/admin/menu/sides" title="View Sides' Menu">Sides</a></p>
+                    <p><a href="/admin/menu/desserts" title="View Desserts' Menu">Desserts</a></p>
+                    <p><a href="/admin/menu/drinks" title="View Drinks' Menu">Drinks</a></p> -->
+                </details>
+            </div>        
+        </section>
+    
+
+        <!--------- BODY / MAIN --------->
+        <section class="body_main ">
+            <div class="top_bar">
+                <div onclick="hideMenu()" title="Side Bar" class="menu_bars ">
+                <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <h1>Dashboard</h1>
+            <!-- <div class="logo_water_mark">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqFu--kT8ToJ0DBhTWgZ6J-CSJYzOEJNKu-A&usqp=CAU" alt="">
+            </div>   -->
+        </section>
+
+    <script>
+        function hideMenu(){
+            document.querySelector('.dash_menu').classList.toggle('showHide');
+            document.querySelector('.body_main').classList.toggle('width_adjust');
+        }
+    </script>
+</body>
 </html>

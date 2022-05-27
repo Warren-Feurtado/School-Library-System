@@ -27,6 +27,7 @@ router.post('/adminlog', function(req, res, next) {
           //Assign session variables based on login credentials                
           req.session.loggedin = true;
           req.session.tid = results[0].id,
+          req.session.admin_ttl = results[0].admin_ttl;
           req.session.frst_nm = results[0].frst_nm;
           req.session.lst_nm = results[0].lst_nm;
           res.redirect('/admin');
