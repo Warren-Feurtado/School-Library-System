@@ -42,6 +42,21 @@
                 <a href="" class="link">Categories</a> -->
 
                 <% if(my_session.loggedin == true){ %>
+                    <a href="/students/books" class="link">Books</a>
+                    <div href="" class="link categories">Categories
+                        <div class="nav_cat_opts">
+                            <% if(cat_data.length){
+                                for(var i = 0; i< cat_data.length; i++) {%>
+                                    <a href="/students/books/<%= cat_data[i].cat_nm %>">
+                                        <div class="opts">
+                                            <%= cat_data[i].cat_nm %>
+                                        </div>  
+                                    </a>
+                                <%}
+                            } %>
+                        </div>
+                    </div>
+                    <a href="" class="link">Rentals</a>
                     <a href="/auth/logout" class="link">Log out</a>
                 <% }else{ %>
                     <a href="/auth/student" class="link">Log in</a>
@@ -51,10 +66,14 @@
 
         <section class="sect1">
             <div class="left">
-                <% if(my_session.loggedin == true){ %>
-                    <h1 style="font-size: 3.5vw;">Welcome <%= my_session.frst_nm %> </h1>
-                    <br><br>
+                <% if(my_session.loggedin == true && my_session.pos == 'admin'){ %>
+                    <h2 style="font-size: 2vw;">Welcome</h1>
+                    <h3 style="font-size: 2.5vw;"><%= my_session.admin_ttl %> <%= my_session.adm_lnm %></h3>
+                <%}else if(my_session.loggedin == true){ %>
+                    <h2 style="font-size: 2vw;">Welcome</h1>
+                    <h3 style="font-size: 2.5vw;"><%= my_session.stu_fnm %> <%= my_session.stu_lnm %></h3>
                 <% } %>
+                <br><br>
                 <div class="heading">
                     <h2 style="font-size: 2.3vw;">Stony-Hill</h2>
                     <h1 style="font-size: 3vw;">Primary School</h1>

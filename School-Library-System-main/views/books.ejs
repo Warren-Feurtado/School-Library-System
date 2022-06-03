@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= title %></title>
         <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel='stylesheet' href='/stylesheets/books.css' />
         <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;500;700&family=Permanent+Marker&display=swap"
         rel="stylesheet">
 
@@ -15,6 +16,15 @@
         </style>
     </head>
     <body>
+        <% if (messages.success) { %>
+            <div class="scss_mssg_cont">
+                <div class="scss_mssg">
+                    <p style="color: green"><%- messages.success %></p>
+                </div>
+                
+            </div>
+            
+        <% } %>     
         <nav>
             <a href="/">
                 <div class="logo">
@@ -43,36 +53,84 @@
             <div class="nav_links">
                 <a href="/admin/books" class="link">Books</a>
                 <a href="" class="link">Categories</a>
+                <a href="" class="link">Rentals</a>
                 <a href="/auth/logout" class="link">Log out</a>
             </div>
         </nav>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <!-- <th>ID#</th> -->
-                    <th>Book Title</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                </tr>
-            </thead>
-            <tbody>
+        <section class="book_sect">
+            <h1 class="heading"><%= pg_heading %></h1>
+            
+            <div class="cards_contain">
                 <% if(data.length){
-       
-                    for(var i = 0; i< data.length; i++) {%>  
-                        <tr>
-                            <!-- <th><%= data[i].id %></th> -->
-                            <td><%= data[i].bk_ttle%></td>
-                            <td><%= data[i].bk_desc%></td>
-                            <td><%= data[i].bk_cat%></td>
-                        </tr>
+               
+                    for(var i = 0; i< data.length; i++) {%> 
+    
+                        <div class="cards">
+                            <a href="">
+                                <div class="image">
+                                    <img src="https://i.pinimg.com/736x/fe/9d/b6/fe9db6bbc996ec6fe495b50625aae6f6.jpg" alt="">
+                                </div>
+                            </a>
+                            
+                            <div class="description">
+                                <a href="">
+                                    <!-- <span class="title"><%= data[i].id%></span><br> -->
+                                    <span class="title"><%= data[i].bk_ttl%></span>
+                                </a><br>
+                                <span class="author">By: <%= data[i].athr_nm%></span><br><br><br>
+                                <!-- <span class="category"><%= data[i].cat_nm%></span><br>
+                                <span class="desc"><%= data[i].bk_desc%></span><br> -->
+                                <a href="/students/book-details/<%=data[i].id%>" class="btn_link">View Book</a>
+                            </div>
+                        </div>
                     <% }
                 }else{ %>
-                    <tr>
-                        <td colspan="3">No Books</td>
-                    </tr>
-                <% } %>    
-            </tbody>
-        </table>
+                    <div>
+                        <img src="https://assets.materialup.com/uploads/c83a9663-be0b-4397-b1af-67f520e44ef1/preview.png" alt="">
+                    </div>
+                <% } %>
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- <div class="table-contain">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Book Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th >Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(data.length){
+               
+                            for(var i = 0; i< data.length; i++) {%>  
+                                <tr>
+                                    <td><%= data[i].bk_ttl%></td>
+                                    <td><%= data[i].athr_fnm%> <%= data[i].athr_lnm%></td>
+                                    <td><%= data[i].cat_nm%></td>
+                                    <td><%= data[i].bk_desc%></td>
+                                </tr>
+                            <% }
+                        }else{ %>
+                            <tr>
+                                <td colspan="4">No Books</td>
+                            </tr>
+                        <% } %>    
+                    </tbody>
+                </table>
+            </div> -->
+        </section>
+        
+        
     </body>
 </html>

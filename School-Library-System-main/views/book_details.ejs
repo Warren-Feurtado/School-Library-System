@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/details.css' />
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;500;700&family=Permanent+Marker&display=swap"
+      rel="stylesheet">
+      
+  </head>
+    <body>
+        <nav>
+            <a href="/">
+                <div class="logo">
+                    <div class="logo-img">
+                        <img src="https://www.metuchenlibrary.org/wp-content/uploads/2014/08/large_cute-bookworm.png"
+                        alt="logo">
+                    </div>
+                    <div class="logo_txt">
+                        <h3 style="font-size: 1.2vw;">
+                            Stony-Hill
+                        </h3>
+                        <h1 style="font-size: 1.6vw;">
+                            Primary
+                        </h1>
+                        <h2 style="font-size: 1vw;">
+                            School Library
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="search">
+                <input type="search" placeholder="Type to search">
+            </div>
+          
+            <div class="nav_links">
+                <a href="/admin/books" class="link">Books</a>
+                <a href="" class="link">Categories</a>
+                <a href="" class="link">Rentals</a>
+                <a href="/auth/logout" class="link">Log out</a>
+            </div>
+        </nav>
+
+        <section class="details_sect">
+           
+            <div class="details">
+                <div class="cover_img">
+                    <img src="https://i.pinimg.com/736x/fe/9d/b6/fe9db6bbc996ec6fe495b50625aae6f6.jpg" alt="">
+                </div>
+
+                <div class="info">
+                    <!-- <span><%= data.id %></span> -->
+                    <h1 title="Book Title"><%= data.bk_ttl %></h1>
+                    <h3 title="Book Author"><%= data.athr_nm %></h3>
+                    <h4 title="Book Category"><%= data.cat_nm %></h4>
+                    <p title="Book Description"><%= data.bk_desc %></p>
+                    <form action="/students/send-request" method="post">
+                        <input type="hidden" name="stu_id" value="<%= my_session.tid %>"><br>
+                        <input type="hidden" name="bk_id" value="<%= data.id %>"><br>
+                        <input type="hidden" name="sts_id" value="1"><br>
+                        <input type="hidden" name="req_dt" value="<%= req_date.toLocaleString() %>" >
+                        <button type="submit" class="btn_link">Rent Book</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

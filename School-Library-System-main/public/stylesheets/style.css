@@ -11,7 +11,8 @@ body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: rgba(251, 255, 0, 0.418); 
+    /* background-color: rgba(251, 255, 0, 0.418);  */
+    background-image: linear-gradient(0deg, rgb(249,155,6),rgb(213,182,13),rgb(255,236,8));
 }
 
 ::-webkit-scrollbar{
@@ -85,16 +86,18 @@ nav .nav_links{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     /* border: 1px solid red; */
 }
 
 .link{
-    padding: 1.3vw 0;
+    padding: 1.5vw 0.5VW;
     font-size: 1.5vw;
     color: white;
-    margin: 0 1vw;
+    margin: 0 0.5vw;
     transition: 0.2s;
     border-bottom: 3px solid transparent;
+    /* border: 1px solid red; */
 }
 
 .link:hover{
@@ -103,14 +106,50 @@ nav .nav_links{
 
 }
 
+.nav_links .nav_cat_opts{
+    width: 15vw;
+    padding: 0.5vw 0.2vw 1vw 0.2vw;
+    background: white;
+    position: absolute;
+    bottom: -24.35vw;
+    box-shadow: 0px 0px 5px 2px rgba(17, 17, 17, 0.593);
+    display: none;
+    left: 5vw;
+    /* z-index: 2000; */
+}
+.categories{
+    cursor: default;
+}
+
+.categories:hover .nav_cat_opts{
+    display: block;
+    /* bottom: -50.4vw; */
+}
+
+.nav_cat_opts .opts{
+    width: 100%;
+    margin: 0.4vw 0;
+    padding: 0.5vw 0.5VW 0.5VW 1.8VW;
+    color: rgb(10, 5, 113);
+    font-size: 1.2vw;
+    /* font-weight: bold; */
+    /* border: 1px solid red; */
+}
+
+.opts:hover{
+    background: rgb(29, 29, 159);
+    color: rgb(242, 226, 5);
+}
+
 .sect1{
     width: 100%;
-    /* height: 50vh; */
-    margin-top: 5vw;
+    height: 100%;
+    
     display: flex;
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .sect1 .left{
@@ -127,17 +166,20 @@ nav .nav_links{
     line-height: 1.2;
 }
 
-.left .btn_link{
-    padding: 0.8vw 1.5vw;
+.btn_link{
+    padding: 0.7vw 1.5vw;
     color: white;
     background: rgb(0, 9, 134);
     border: 1px solid rgba(0, 0, 255, 0.322);
-    border-radius: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 2px rgba(17, 17, 17, 0.27);
     transition: 0.2s;
+    cursor: pointer;
 }
 .btn_link:hover{
     background: rgb(33, 33, 194);
     color: rgb(230, 255, 1);
+    box-shadow: 0px 0px 5px 4px rgba(17, 17, 17, 0.23);
 }
 
 .sect1 .right{
@@ -145,4 +187,27 @@ nav .nav_links{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.scss_mssg_cont{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.458);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.scss_mssg{
+    width: 20%;
+    height: 20%;
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.323);
 }

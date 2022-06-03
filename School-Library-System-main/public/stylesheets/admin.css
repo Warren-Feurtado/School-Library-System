@@ -39,7 +39,7 @@ body{
     border-right: 1px solid rgb(238, 238, 238);
     box-shadow: 0px 0px 5px 2px rgba(174, 174, 174, 0.384);
     z-index: 10;
-    transition: 0.7s ease;
+    transition: 0.7s ease-out;
     padding-bottom: 5vw;
 }
 .dash_menu.showHide{
@@ -181,11 +181,11 @@ summary .fa-list-check, summary .fa-clipboard, summary .fa-house-user{
 .body_contain .body_main{
     width: 83%;
     height: 100%;   
-    background-color: rgba(251, 255, 0, 0.418); 
+    background-image: linear-gradient(0deg, rgb(249,155,6),rgb(213,182,13),rgb(255,236,8));
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
-    transition: 0.7s ease;
+    transition: 1s all;
     padding-bottom: 5vw;
 }
 
@@ -252,4 +252,27 @@ summary .fa-list-check, summary .fa-clipboard, summary .fa-house-user{
 }
 .logo_water_mark img{
     width: 100%;
+}
+
+.scss_mssg_cont{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.458);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.scss_mssg{
+    width: 20%;
+    height: 20%;
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.323);
 }

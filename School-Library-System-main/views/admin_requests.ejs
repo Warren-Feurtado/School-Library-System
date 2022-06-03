@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,50 +67,53 @@
                 <i class="fa-solid fa-bars"></i>
                 </div>
             </div>
-            <h1>Update This Book's Information</h1>
+            <h1>Book Requests</h1>
 
-            <section class="form_ctrl">
+            <div class="table-contain">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID#</th>
+                            <th>Student Name</th>
+                            <th>Book Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Request Date</th>
+                            <th>Request Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(data.length){
+               
+                            for(var i = 0; i< data.length; i++) {%>  
+                                <tr>
+                                    <th><%= data[i].id %></th>
+                                    <td><%= data[i].stu_fnm%> <%= data[i].stu_lnm%></td>
+                                    <td><%= data[i].bk_ttl%></td>
+                                    <td><%= data[i].athr_nm%></td>
+                                    <td><%= data[i].cat_nm%></td>
+                                    <td><%= new Date(data[i].req_dt).toLocaleDateString()%></td>
+                                    <td><%= data[i].sts%></td>
+                                    <td colspan="2">
+                                        <a href="/admin/edit-book/<%=data[i].id%>" title="Edit or replace this book"><i class="fa-solid fa-pencil"></i></a>                                                                                       
+                                        <a href="/admin/delete-book/<%=data[i].id%>" title="Delete this book"><i class="fa-solid fa-trash-can"></i></a>                                            
+                                    </td>
+                                </tr>
+                            <% }
+                        }else{ %>
+                            <tr>
+                                <td colspan="8"><h2>No Requests</h2>
+                                    <div>
+                                        <img src="https://assets.materialup.com/uploads/c83a9663-be0b-4397-b1af-67f520e44ef1/preview.png" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                        <% } %>    
+                    </tbody>
+                </table>
+            </div>
             
-                <form action="/admin/update-book/" method="post" class="bookEditForm">
-                    <div class="table-contain">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><label for="bk_ttl">Title</label></th>
-                                    <th><label for="athr_nm">Author</label></th>
-                                    <th><label for="cat_nm">Category</label></th>
-                                    <th style="width: 30%;"><label for="bk_desc">Description</label></th>
-                                    <th><label>Action</label></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="text" id="bk_ttl" name="bk_ttl" value="<%= data.bk_ttl %>">
-                                    </td>
-                                    <td>
-                                        <input type="text" id="athr_nm" name="athr_nm" value=" <%= data.athr_nm %>">
-                                    </td>
-                                    <td>
-                                        <input type="text" id="cat_nm" name="cat_nm" value="<%= data.cat_nm %>">
-                                    </td>
-                                    <td>
-                                        <textarea type="text" id="bk_desc" name="bk_desc"><%= data.bk_desc %></textarea>
-                                    </td>
-                                    <td>
-                                        <button type="submit" title="Save Changes"><i class="fa-solid fa-cloud-arrow-up"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <input type="hidden" name="id" value="<%= data.id %>">
-                    </div>
-                </form>
-            </section>
-
-
-
-
             <!-- <div class="logo_water_mark">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqFu--kT8ToJ0DBhTWgZ6J-CSJYzOEJNKu-A&usqp=CAU" alt="">
             </div>   -->

@@ -20,7 +20,7 @@ var mysql = require('mysql2');
 var homeRouter = require('./routes/index');
 var loginRouter = require('./routes/auth');
 var adminRouter = require('./routes/admin');
-// var studentsRouter = require('./routes/students');
+var studentsRouter = require('./routes/students');
 
 var app = express();
 
@@ -48,8 +48,8 @@ var app = express();
 
  app.use(flash());
  
-//  app.use('/students', studentsRouter);
  app.use('/', homeRouter);
+ app.use('/students', studentsRouter);
  app.use('/auth', loginRouter);
  app.use('/admin', adminRouter);
  
